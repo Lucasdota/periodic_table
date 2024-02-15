@@ -13,7 +13,7 @@ then
   TYPE=$($PSQL "SELECT type FROM types INNER JOIN properties USING(type_id) WHERE atomic_number=$1")
 
   # if argument is only one letter long
-  elif [[ $1 =~ ^[[:alpha:]]$ ]]
+  elif [[ $1 =~ ^[[:alpha:]]{1,2}$ ]]
   then
     # get atomic number  
     ATOMIC_NUMBER=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1'")
